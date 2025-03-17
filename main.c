@@ -90,7 +90,34 @@ void executeInstruction(char *inst, char *op1, char *op2, char *op3){
     }
     else if (strcmp(inst, "PAUSE") == 0)
     {
-        UC = 0; // Pausa la ejecución
+       printf("Se ha pausado la ejecucion. Escriba CONT para continuar o DUMP para inspeccionar la memoria \n");
+
+       char input[10];
+
+       while (1)
+       {
+         scanf("%s", input);
+         if (strcmp(input, "CONT") == 0)
+         {
+            break;
+         }
+         else if (strcmp(input, "DUMP") == 0)
+         {
+            printf("ACC: %d, ICR: %d, MAR: %d, MDR: %d, UC: %d\n", ACC, ICR, MAR, MDR, UC);
+            for(int i = 0; i< MEM_SIZE; i++)
+            {
+                if (memory[i] != 0)
+                {
+                    printf("D%d: %d\n", i, memory [i]);
+                }
+            }
+         }
+         else
+        {
+            printf("Comando desconocido. Porfavor escriba 'CONT' para continuar la ejecucion o 'DUMP' para inspecionar la memoria \n");
+        }
+       }
+       
     }
     else if (strcmp(inst, "END") == 0)
     {

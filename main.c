@@ -90,12 +90,12 @@ void executeInstruction(char *inst, char *op1, char *op2, char *op3){
     }
     else if (strcmp(inst, "PAUSE") == 0)
     {
-       printf("Se ha pausado la ejecucion. Escriba CONT para continuar o DUMP para inspeccionar la memoria \n");
 
        char input[10];
 
        while (1)
        {
+         printf("Se ha pausado la ejecucion. Escriba CONT para continuar o DUMP para inspeccionar la memoria \n");
          scanf("%s", input);
          if (strcmp(input, "CONT") == 0)
          {
